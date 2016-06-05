@@ -8,6 +8,7 @@ namespace Minesweeper
 {
     class Tile
     {
+        private int MINE = 9;
         private bool hidden;
         private int value;
         private bool flagged;
@@ -59,6 +60,19 @@ namespace Minesweeper
         public void addAdjacentTile(Tile t)
         {
             adjacentTiles.Add(t);
+        }
+
+        internal int getNumAdjacentMines()
+        {
+            int mines = 0;
+            foreach (Tile t in adjacentTiles)
+            {
+                if (t.getValue() == MINE)
+                {
+                    mines++;
+                }
+            }
+            return mines;
         }
     }
 }
