@@ -6,20 +6,33 @@ using System.Threading.Tasks;
 
 namespace Minesweeper
 {
-    class Tile
+    public class Tile
     {
         private int MINE = 9;
         private bool hidden;
         private int value;
         private bool flagged;
         private List<Tile> adjacentTiles;
+        private int x, y;
 
-        public Tile()
+        public Tile(int x, int y)
         {
+            this.x = x;
+            this.y = y;
             hidden = true;
             value = 0;
             flagged = false;
             adjacentTiles = new List<Tile>();
+        }
+
+        public int getX()
+        {
+            return x;
+        }
+
+        public int getY()
+        {
+            return y;
         }
 
         public void setHidden(bool var)

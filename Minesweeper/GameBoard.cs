@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Minesweeper
 {
-    class GameBoard
+    public class GameBoard
     {
         private int MINE = 9;
         public bool gameOver, win;
@@ -27,7 +27,7 @@ namespace Minesweeper
             {
                 for (int j = 0; j < boardWidth; j++)
                 {
-                    boardTiles[i, j] = new Tile();
+                    boardTiles[i, j] = new Tile(i,j);
                 }
             }
 
@@ -59,6 +59,11 @@ namespace Minesweeper
                     }
                 }
             }
+        }
+
+        public Tile[,] getGameBoard()
+        {
+            return boardTiles;
         }
 
         private void setAdjacentTiles(int i, int j)
@@ -186,8 +191,9 @@ namespace Minesweeper
             }
         }
 
-        public void onClick(int x, int y)
+        public List<System.Windows.Point> onClick(int x, int y)
         {
+            List<System.Windows.Point> list = new List<System.Windows.Point>();
             Queue<Tile> queue = new Queue<Tile>();
             Tile t = boardTiles[x, y];
             if (!t.isFlagged())
@@ -199,6 +205,7 @@ namespace Minesweeper
                 else
                 {
                     queue.Enqueue(t);
+                    list.Add(new System.Windows.Point(t.getX(), t.getY()));
                 }
             }
             while(queue.Count != 0)
@@ -219,10 +226,12 @@ namespace Minesweeper
                         if (tile.isHidden() && !queue.Contains(tile))
                         {
                             queue.Enqueue(tile);
+                            list.Add(new System.Windows.Point(tile.getX(), tile.getY()));
                         }
                     }
                 }
             }
+            return list;
         }
 
         public void onRightClick(int x, int y)
