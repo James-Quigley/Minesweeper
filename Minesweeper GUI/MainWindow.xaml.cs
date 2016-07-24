@@ -41,11 +41,31 @@ namespace Minesweeper
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            int rows = int.Parse(textBox.Text);
-            int columns = int.Parse(textBox1.Text);
-            int mines = int.Parse(textBox2.Text);
-            Board board = new Board(rows, columns, mines);
-            board.Show();
+            int rows, columns, mines;
+            try
+            {
+                rows = int.Parse(textBox.Text);
+                columns = int.Parse(textBox1.Text);
+                mines = int.Parse(textBox2.Text);
+                if (mines >= rows * columns)
+                {
+                    MessageBox.Show("More mines than spaces!");
+                }
+                else if (rows < 2 || columns < 2)
+                {
+                    MessageBox.Show("Board must be at least 2x2!");
+                }
+                else
+                {
+                    Board board = new Board(rows, columns, mines);
+                    board.Show();
+                }
+            }
+            catch (Exception excpt)
+            {
+                MessageBox.Show("Please enter a value!");
+            }
+            
         }
     }
 }
