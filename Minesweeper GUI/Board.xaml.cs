@@ -84,17 +84,45 @@ namespace Minesweeper
             }
             else
             {
-                Minesweeper.Tile[,] board = game.getGameBoard();
+                Tile[,] board = game.getGameBoard();
                 foreach (Point tile in list) {
                     Button button = grid.Children.Cast<Button>().First(e => Grid.GetRow(e) == tile.X && Grid.GetColumn(e) == tile.Y);
                     if (board[(int)tile.X, (int)tile.Y].isFlagged())
                     {
                         button.Content = "\u2691";
+                        button.Foreground = Brushes.Red;
                     }
                     else if (!board[(int)tile.X, (int)tile.Y].isHidden())
                     {
                         button.Content = board[(int)tile.X, (int)tile.Y].getValue();
-                        button.IsEnabled = false;
+                        switch (board[(int)tile.X, (int)tile.Y].getValue())
+                        {
+                            case 1:
+                                button.Foreground = Brushes.Blue;
+                                break;
+                            case 2:
+                                button.Foreground = Brushes.Green;
+                                break;
+                            case 3:
+                                button.Foreground = Brushes.OrangeRed;
+                                break;
+                            case 4:
+                                button.Foreground = Brushes.BlueViolet;
+                                break;
+                            case 5:
+                                button.Foreground = Brushes.DarkRed;
+                                break;
+                            case 6:
+                                button.Foreground = Brushes.LightGreen;
+                                break;
+                            case 7:
+                                button.Foreground = Brushes.Purple;
+                                break;
+                            case 8:
+                                button.Foreground = Brushes.Gray;
+                                break;
+                        }
+                        button.Background = Brushes.DarkGray;
                     }
                     else
                     {
