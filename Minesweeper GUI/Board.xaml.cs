@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Minesweeper_GUI
+namespace Minesweeper
 {
     /// <summary>
     /// Interaction logic for Board.xaml
     /// </summary>
     public partial class Board : Window
     {
-        Minesweeper.GameBoard game;
+        GameBoard game;
         public Board(int rows, int columns, int mines)
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace Minesweeper_GUI
                     grid.Children.Add(button);
                 }
             }
-            game = new Minesweeper.GameBoard(rows, columns, mines);
+            game = new GameBoard(rows, columns, mines);
         }
 
         private void Button_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -74,7 +74,7 @@ namespace Minesweeper_GUI
         {
             if (game.gameOver)
             {
-                MessageBox.Show("You lose!");
+                MessageBox.Show("You Lose!");
                 this.Close();
             }
             else if (game.win)

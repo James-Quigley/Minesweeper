@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Minesweeper GUI")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Minesweeper")]
+[assembly: AssemblyDescription("Personal rendition of the Windows Classic")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Minesweeper GUI")]
+[assembly: AssemblyCompany("James Quigley")]
+[assembly: AssemblyProduct("Minesweeper")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

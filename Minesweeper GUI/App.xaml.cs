@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Minesweeper_GUI
+namespace Minesweeper
 {
     /// <summary>
     /// Interaction logic for App.xaml
